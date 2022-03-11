@@ -4,7 +4,7 @@ import { Component, OnDestroy } from '@angular/core';
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
-  styles: [`:host, :host > main { height: 100%; }`]
+  styles: [`:host, :host > main { height: 100vh; }`],
 })
 export class AppComponent implements OnDestroy {
   notificationCount = 0;
@@ -15,7 +15,7 @@ export class AppComponent implements OnDestroy {
         this.notificationCount++;
       });
     } else {
-      this.intervalSubscription.unsubscribe()
+      this.intervalSubscription.unsubscribe();
     }
   }
   onReset() {
