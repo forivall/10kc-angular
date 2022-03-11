@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '~@angular/material' as mat;
 
 @include mat.core();
@@ -15,3 +16,13 @@ $theme: mat.define-dark-theme((
 ));
 
 @include mat.all-component-themes($theme);
+
+$config: mat.get-color-config($theme);
+
+body {
+  $background: map.get($config, background);
+  $foreground: map.get($config, foreground);
+
+  background-color: mat.get-color-from-palette($background, background);
+  color: mat.get-color-from-palette($foreground, text);
+}
