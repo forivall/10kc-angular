@@ -5,7 +5,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: './indicator.component.html',
 })
 export class IndicatorComponent {
-  @Input() count: number | undefined;
+  @Input() count = 0;
   /** To receive, this emits `true`. To stop, emits `false` */
   @Output() recieve = new EventEmitter<boolean>();
   @Output() reset = new EventEmitter<void>();
