@@ -1,6 +1,8 @@
 @use 'sass:map';
 @use '~@angular/material' as mat;
 
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
+
 @include mat.core();
 
 // pink-bluegrey theme https://github.com/angular/components/blob/12.2.4/src/material/core/theming/prebuilt/pink-bluegrey.scss
@@ -19,4 +21,8 @@ $theme: mat.define-dark-theme((
 
 body {
   @extend .mat-app-background;
+  // Note: the base app that we're cloning has #191919, but the defined material theme uses #303030
+  // background-color: #191919;
 }
+
+// @debug mat.get-color-config($theme);

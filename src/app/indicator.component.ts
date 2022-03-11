@@ -1,10 +1,23 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'indicator',
-  template: `<h1>Hello {{name}}!</h1>`,
-  styles: [`h1 { font-family: Lato; }`]
+  templateUrl: './indicator.component.html',
+  styleUrls: ['./indicator.component.scss'],
+  host: {
+    fxLayout: 'column',
+    fxLayoutAlign: 'start center',
+    fxLayoutGap: '24px',
+  },
 })
-export class IndicatorComponent  {
-  @Input() name: string;
+export class IndicatorComponent {
+  @Input() count: number;
+  @Output() recieve = new EventEmitter<boolean>();
+  isRecieving = false;
+
+  constructor() {
+    this.recieve.subscribe((value) => {
+      this.isRecieving = value;
+    });
+  }
 }
