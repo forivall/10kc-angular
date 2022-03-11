@@ -1,8 +1,7 @@
 <main fxLayout="column" fxLayoutAlign="center center">
   <indicator
-    fxLayout="column"
-    fxLayoutAlign="start center"
-    fxLayoutGap="24px"
-    [count]="5"
+    [count]="notificationCount"
+    (recieve)="setRecieve($event)"
+    (reset)="onReset()"
   ></indicator>
 </main>

@@ -1,31 +1,30 @@
-<div>
+<div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="24px">
   <span class="cdk-visually-hidden">{{ count }} messages received</span>
   <button
     mat-icon-button
     title="Click to clear messages"
-    matBadge="{{ count }}"
+    matBadge="{{ count || undefined }}"
     matBadgeColor="warn"
+    (click)="reset.emit()"
   >
     <mat-icon class="material-icons-outlined">email</mat-icon>
   </button>
-</div>
-<div fxLayoutGap="8px" 
-fxLayout="row"
-fxLayoutAlign="center center">
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="recieve.emit(true)"
-    disabled="{{ isRecieving }}"
-  >
-    Start receiving
-  </button>
-  <button
-    mat-raised-button
-    color="accent"
-    (click)="recieve.emit(false)"
-    disabled="{{ !isRecieving }}"
-  >
-    Stop receiving
-  </button>
+  <div fxLayoutGap="8px" fxLayout="row" fxLayoutAlign="center center">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="recieve.emit(true)"
+      disabled="{{ isRecieving }}"
+    >
+      Start receiving
+    </button>
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="recieve.emit(false)"
+      disabled="{{ !isRecieving }}"
+    >
+      Stop receiving
+    </button>
+  </div>
 </div>
