@@ -1,1 +1,17 @@
-/* Add application styles & imports to this file! */
+@use '~@angular/material' as mat;
+
+@include mat.core();
+
+// pink-bluegrey theme https://github.com/angular/components/blob/12.2.4/src/material/core/theming/prebuilt/pink-bluegrey.scss
+// See https://v12.material.angular.io/guide/theming#using-a-pre-built-theme
+$primary: mat.define-palette(mat.$pink-palette, 700, 500, 900);
+$accent:  mat.define-palette(mat.$blue-grey-palette, A200, A100, A400);
+
+$theme: mat.define-dark-theme((
+  color: (
+    primary: $primary,
+    accent: $accent
+  )
+));
+
+@include mat.all-component-themes($theme);
